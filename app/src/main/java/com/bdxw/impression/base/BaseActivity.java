@@ -16,7 +16,7 @@ import java.net.URL;
  * Date: 2017-12-13 15:36
  */
 public abstract class BaseActivity extends FragmentActivity implements View.OnClickListener{
-//    Failed with error: unable to access 'https://github.com/Android-Social-APP/impression.git/': The requested URL returned error: 403
+//    Failed with error: unable to access 'https://github.com
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
