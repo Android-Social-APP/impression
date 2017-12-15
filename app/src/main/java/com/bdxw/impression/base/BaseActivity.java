@@ -7,6 +7,8 @@ import android.view.View;
 
 import com.gyf.barlibrary.ImmersionBar;
 
+import java.net.URL;
+
 /**
  * Name: BaseActivity
  * Author: 王兵洋的Computer
@@ -14,7 +16,7 @@ import com.gyf.barlibrary.ImmersionBar;
  * Date: 2017-12-13 15:36
  */
 public abstract class BaseActivity extends FragmentActivity implements View.OnClickListener{
-    //baseActivity
+//    Failed with error: unable to access 'https://github.com/Android-Social-APP/impression.git/': The requested URL returned error: 403
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
