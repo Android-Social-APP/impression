@@ -1,0 +1,20 @@
+<resources>
+    <!--APP名字-->
+    <string name="app_name">工业印象</string>
+    <!--主页-->
+    <string name="recommend">推荐</string>
+    <string name="follow">关注</string>
+    <string name="follow_page_no_follow">您目前还没有关注任何文章</string>
+    <string name="login">登陆</string>
+    <!--登陆-->
+    <string name="login_fabulous">收到的赞赏</string>
+    <string name="login_fabulous_">_</string>
+    <string name="login_fensi">我的粉丝</string>
+    <string name="login_fensi_">_</string>
+    <string name="login_message">我的消息</string>
+    <string name="login_topic">全部话题</string>
+    <string name="login_see">我的文章</string>
+    <string name="login_self">我的关注</string>
+    <string name="login_share">分享APP</string>
+    <!---->
+</resources>

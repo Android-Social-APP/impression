@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_centerHorizontal="true"
+    android:background="@mipmap/background_login">
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:orientation="vertical"
+      android:layout_height="match_parent">
+
+      <ImageView
+          android:id="@+id/login_user_setting"
+          android:layout_width="wrap_content"
+          android:layout_gravity="right"
+          android:layout_marginRight="30dp"
+          android:layout_marginTop="30dp"
+          android:src="@mipmap/img_setting"
+          android:layout_height="wrap_content" />
+
+      <ImageView
+          android:id="@+id/login_user_img"
+          android:layout_width="match_parent"
+          android:src="@mipmap/img_portrait_default"
+          android:layout_height="wrap_content" />
+
+      <TextView
+          android:layout_gravity="center"
+          android:id="@+id/login_user_name"
+          android:layout_marginTop="5dp"
+          android:layout_width="80dp"
+          android:background="@drawable/login"
+          android:textColor="@color/red"
+          android:gravity="center"
+          android:text="@string/login"
+          android:layout_height="30dp" />
+      <!--收到的赞赏 我的粉丝-->
+      <LinearLayout
+          android:layout_marginTop="20dp"
+          android:layout_width="match_parent"
+          android:orientation="horizontal"
+          android:layout_height="50dp">
+
+          <LinearLayout
+              android:layout_weight="1"
+              android:layout_width="0dp"
+              android:layout_height="40dp">
+              <LinearLayout
+                  android:layout_width="match_parent"
+                  android:orientation="vertical"
+                  android:layout_height="wrap_content">
+                  <TextView
+                      android:layout_width="match_parent"
+                      android:text="@string/login_fabulous"
+                      android:gravity="center"
+                      android:layout_height="wrap_content" />
+
+                  <TextView
+                      android:id="@+id/login_text_fabulous"
+                      android:layout_width="match_parent"
+                      android:text="@string/login_fabulous_"
+                      android:gravity="center"
+                      android:layout_height="match_parent" />
+
+              </LinearLayout>
+          </LinearLayout>
+
+          <LinearLayout
+              android:layout_weight="1"
+              android:layout_width="0dp"
+              android:layout_height="40dp">
+
+              <LinearLayout
+                  android:layout_width="match_parent"
+                  android:orientation="vertical"
+                  android:layout_height="wrap_content">
+                  <TextView
+                      android:layout_width="match_parent"
+                      android:text="@string/login_fensi"
+                      android:gravity="center"
+                      android:layout_height="wrap_content" />
+
+                  <TextView
+                      android:id="@+id/login_text_fensi"
+                      android:layout_width="match_parent"
+                      android:text="@string/login_fabulous_"
+                      android:gravity="center"
+                      android:layout_height="match_parent" />
+
+              </LinearLayout>
+          </LinearLayout>
+      </LinearLayout>
+    <!--列表-->
+        <TextView
+            android:id="@+id/login_message"
+            android:layout_width="match_parent"
+            android:paddingLeft="25dp"
+            android:layout_marginTop="25dp"
+            android:text="@string/login_message"
+            android:gravity="center_vertical"
+            android:drawablePadding="25dp"
+            android:drawableLeft="@mipmap/img_message"
+            android:layout_height="30dp" />
+      <TextView
+          android:id="@+id/login_topic"
+          android:layout_width="match_parent"
+          android:paddingLeft="25dp"
+          android:layout_marginTop="15dp"
+          android:text="@string/login_topic"
+          android:gravity="center_vertical"
+          android:drawablePadding="25dp"
+          android:drawableLeft="@mipmap/img_topic"
+          android:layout_height="30dp" />
+      <TextView
+          android:id="@+id/login_see_hear"
+          android:layout_width="match_parent"
+          android:paddingLeft="25dp"
+          android:layout_marginTop="15dp"
+          android:text="@string/login_see"
+          android:gravity="center_vertical"
+          android:drawablePadding="25dp"
+          android:drawableLeft="@mipmap/img_see_hear"
+          android:layout_height="30dp" />
+      <TextView
+          android:id="@+id/login_self_attention"
+          android:layout_width="match_parent"
+          android:paddingLeft="25dp"
+          android:layout_marginTop="15dp"
+          android:text="@string/login_self"
+          android:gravity="center_vertical"
+          android:drawablePadding="25dp"
+          android:drawableLeft="@mipmap/img_self_attention"
+          android:layout_height="30dp" />
+      <TextView
+          android:id="@+id/login_share_drawable_left"
+          android:layout_width="match_parent"
+          android:paddingLeft="25dp"
+          android:layout_marginTop="15dp"
+          android:text="@string/login_share"
+          android:gravity="center_vertical"
+          android:drawablePadding="25dp"
+          android:drawableLeft="@mipmap/img_share_drawable_left"
+          android:layout_height="30dp" />
+
+
+  </LinearLayout>
+
+    <ImageView
+        android:id="@+id/login_exit"
+        android:layout_width="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_alignParentBottom="true"
+        android:src="@mipmap/img_dismiss"
+        android:layout_height="wrap_content" />
+</RelativeLayout>
