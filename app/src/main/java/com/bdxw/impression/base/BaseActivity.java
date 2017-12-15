@@ -16,7 +16,7 @@ import java.net.URL;
  * Date: 2017-12-13 15:36
  */
 public abstract class BaseActivity extends FragmentActivity implements View.OnClickListener{
-//    Failed with error: unable to access 'https://github.com
+//    Failed with error: unable to access 'https://gith
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
