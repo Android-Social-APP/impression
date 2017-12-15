@@ -14,7 +14,7 @@ import com.gyf.barlibrary.ImmersionBar;
  * Date: 2017-12-13 15:36
  */
 public abstract class BaseActivity extends FragmentActivity implements View.OnClickListener{
-
+    //baseActivity
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
