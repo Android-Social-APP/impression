@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bdxw.impression.R;
 import com.bdxw.impression.base.BaseActivity;
@@ -35,7 +36,8 @@ public class LoginActivity extends BaseActivity {
     TextView mLoginSelfAttention;
     @BindView(R.id.login_share_drawable_left)
     TextView mLoginShareDrawableLeft;
-    private ImageView  mLoginExit;
+    @BindView(R.id.login_exit)
+    ImageView mLoginExit;
 
     @Override
     protected int bindLayoutView() {
@@ -45,19 +47,10 @@ public class LoginActivity extends BaseActivity {
     @Override
     protected void initView() {
 
-        mLoginExit = findViewById(R.id.login_exit);
-
     }
 
     @Override
     protected void initData() {
-        mLoginExit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this, HomeActivity.class));
-                overridePendingTransition(0, R.anim.zoom_out);
-            }
-        });
     }
 
     //设置 手机返回键的动画
@@ -67,11 +60,12 @@ public class LoginActivity extends BaseActivity {
     }
 
 
-    @OnClick({R.id.login_user_setting, R.id.login_user_img, R.id.login_user_name, R.id.login_text_fabulous, R.id.login_text_fensi, R.id.login_message, R.id.login_topic, R.id.login_see_hear, R.id.login_self_attention, R.id.login_share_drawable_left})
+    @OnClick({R.id.login_user_setting, R.id.login_user_img, R.id.login_user_name, R.id.login_text_fabulous, R.id.login_text_fensi, R.id.login_message, R.id.login_topic, R.id.login_see_hear, R.id.login_self_attention, R.id.login_share_drawable_left,R.id.login_exit})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             // 登陆界面的设置按钮
             case R.id.login_user_setting:
+                Toast.makeText(this, "设置", Toast.LENGTH_SHORT).show();
                 break;
             // 登陆界面的用户头像
             case R.id.login_user_img:
@@ -99,6 +93,11 @@ public class LoginActivity extends BaseActivity {
                 break;
             //登陆界面的分享APP
             case R.id.login_share_drawable_left:
+                break;
+            //登陆界面的退出
+            case R.id.login_exit:
+                startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                overridePendingTransition(0, R.anim.zoom_out);
                 break;
         }
     }

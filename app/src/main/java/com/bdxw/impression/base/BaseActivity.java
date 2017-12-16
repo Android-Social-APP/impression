@@ -9,6 +9,9 @@ import com.gyf.barlibrary.ImmersionBar;
 
 import java.net.URL;
 
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
+
 /**
  * Name: BaseActivity
  * Author: 王兵洋的Computer
@@ -16,7 +19,9 @@ import java.net.URL;
  * Date: 2017-12-13 15:36
  */
 public abstract class BaseActivity extends FragmentActivity {
-//    Failed with error: unable to access
+
+    private Unbinder mBind;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +33,7 @@ public abstract class BaseActivity extends FragmentActivity {
                 fitsSystemWindows(true)  //解决了 状态栏与布局重叠的问题
                 .barAlpha(0.3f)
                 .init();
+        mBind = ButterKnife.bind(this);
     }
     //绑定视图
     protected abstract int bindLayoutView();
@@ -36,4 +42,10 @@ public abstract class BaseActivity extends FragmentActivity {
     //写数据
     protected abstract void initData();
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        //解绑ButterKnife
+        mBind.unbind();
+    }
 }
