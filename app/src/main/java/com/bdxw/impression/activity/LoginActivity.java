@@ -18,6 +18,7 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     protected void initView() {
+        //王逼样牛逼
         mLoginExit=findViewById(R.id.login_exit);
         mLoginExit.setOnClickListener(this);
     }
