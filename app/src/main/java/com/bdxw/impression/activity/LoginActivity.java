@@ -70,8 +70,9 @@ public class LoginActivity extends BaseActivity {
             // 登陆界面的用户头像
             case R.id.login_user_img:
                 break;
-            //登陆界面的用户名字
+            //登陆界面的用户名字 登陆按钮
             case R.id.login_user_name:
+
                 break;
             //登陆界面的赞赏
             case R.id.login_text_fabulous:

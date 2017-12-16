@@ -29,6 +29,29 @@
         </activity>
         <activity android:name=".activity.LoginActivity" android:launchMode="singleTask"></activity>
         <!--QQ精简版-->
+        <activity
+            android:name="com.umeng.qq.tencent.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="tencent100424468" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.umeng.qq.tencent.AssistActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:configChanges="orientation|keyboardHidden|screenSize"/>
+        <!--友盟APPKey-->
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="5a3364dab27b0a118e00005d" >
+        </meta-data>
 
     </application>
 
