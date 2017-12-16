@@ -15,7 +15,7 @@ import java.net.URL;
  * Comment: //TODO  BaseActivity基类
  * Date: 2017-12-13 15:36
  */
-public abstract class BaseActivity extends FragmentActivity implements View.OnClickListener{
+public abstract class BaseActivity extends FragmentActivity {
 //    Failed with error: unable to access
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
