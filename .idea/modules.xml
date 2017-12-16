@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Impression.iml" filepath="$PROJECT_DIR$/Impression.iml" />
       <module fileurl="file://E:\Android\impression\Impression.iml" filepath="E:\Android\impression\Impression.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://D:\StudioProject\Impression\app\app.iml" filepath="D:\StudioProject\Impression\app\app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/impression.iml" filepath="$PROJECT_DIR$/impression.iml" />
       <module fileurl="file://D:\StudioProject\Impression\.idea\impression.iml" filepath="D:\StudioProject\Impression\.idea\impression.iml" />
     </modules>
   </component>
