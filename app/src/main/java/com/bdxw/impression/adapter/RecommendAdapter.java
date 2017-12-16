@@ -39,12 +39,11 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecommendAdapter.View
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
 
-        holder.recommend_adapter_tv.setText(mRecommendBeans.get(position).getSummary());
+        holder.recommend_adapter_tv.setText(mRecommendBeans.get(position).getTitle());
         Glide.with(mContext).load(mRecommendBeans.get(position).getFace()).into(holder.recommend_adapter_img);
 
         holder.recommend_adapter_admire.setText(mRecommendBeans.get(position).getRead_count());
         holder.recommend_adapter_comment.setText(mRecommendBeans.get(position).getComment_count());
-//        holder.recommend_adapter_data.setText(mRecommendBeans.get(position).getCreate_time());
     }
 
     @Override
