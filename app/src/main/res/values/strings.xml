@@ -16,5 +16,6 @@
     <string name="login_see">我的文章</string>
     <string name="login_self">我的关注</string>
     <string name="login_share">分享APP</string>
-    <!---->
+    <!--选择登陆-->
+    <string name="select_login_textview">选择登陆方式</string>
 </resources>
