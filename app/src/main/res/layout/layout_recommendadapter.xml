@@ -1,74 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+android:layout_width="match_parent"
+android:orientation="vertical"
+android:padding="1dp"
+android:layout_centerHorizontal="true"
+android:layout_height="wrap_content">
+
+<LinearLayout
+    android:background="@color/white"
     android:orientation="vertical"
-    android:padding="1dp"
-    android:layout_centerHorizontal="true"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:background="@color/white"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/recommend_adapter_img"
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
-        <ImageView
-            android:id="@+id/recommend_adapter_img"
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/recommend_adapter_tv"
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
-        <TextView
-            android:id="@+id/recommend_adapter_tv"
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+</LinearLayout>
 
-    </LinearLayout>
+<LinearLayout
+    android:background="@color/white"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="30dp">
 
-    <LinearLayout
-        android:background="@color/white"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="30dp">
+    <TextView
+        android:id="@+id/recommend_adapter_comment"
+        android:layout_width="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="10dp"
+        android:drawablePadding="10dp"
+        android:drawableLeft="@mipmap/img_comment"
+        android:layout_height="match_parent" />
 
-        <TextView
-            android:id="@+id/recommend_adapter_comment"
-            android:layout_width="wrap_content"
-            android:gravity="center_vertical"
-            android:layout_marginLeft="10dp"
-            android:drawablePadding="10dp"
-            android:drawableLeft="@mipmap/img_comment"
-            android:layout_height="match_parent" />
+    <TextView
+        android:id="@+id/recommend_adapter_admire"
+        android:layout_width="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="30dp"
+        android:drawablePadding="10dp"
+        android:drawableLeft="@mipmap/img_admire"
+        android:layout_height="match_parent" />
 
-        <TextView
-            android:id="@+id/recommend_adapter_admire"
-            android:layout_width="wrap_content"
-            android:gravity="center_vertical"
-            android:layout_marginLeft="30dp"
-            android:drawablePadding="10dp"
-            android:drawableLeft="@mipmap/img_admire"
-            android:layout_height="match_parent" />
+    <TextView
+        android:id="@+id/recommend_adapter_data"
+        android:layout_marginLeft="15dp"
+        android:layout_width="0dp"
+        android:gravity="center_vertical"
+        android:layout_weight="1"
+        android:layout_height="match_parent" />
 
-        <TextView
-            android:id="@+id/recommend_adapter_data"
-            android:layout_marginLeft="15dp"
-            android:layout_width="0dp"
-            android:gravity="center_vertical"
-            android:layout_weight="1"
-            android:layout_height="match_parent" />
-
-        <TextView
-            android:id="@+id/recommend_adapter_follow"
-            android:layout_width="wrap_content"
-            android:text="关注"
-            android:textColor="@color/red"
-            android:layout_marginLeft="10dp"
-            android:drawablePadding="10dp"
-            android:layout_marginRight="15dp"
-            android:gravity="center_vertical|right"
-            android:drawableLeft="@mipmap/img_attention"
-            android:layout_height="match_parent" />
-    </LinearLayout>
+    <TextView
+        android:id="@+id/recommend_adapter_follow"
+        android:layout_width="wrap_content"
+        android:text="关注"
+        android:textColor="@color/red"
+        android:layout_marginLeft="10dp"
+        android:drawablePadding="10dp"
+        android:layout_marginRight="15dp"
+        android:gravity="center_vertical|right"
+        android:drawableLeft="@mipmap/img_attention"
+        android:layout_height="match_parent" />
+</LinearLayout>
 
 </LinearLayout>
