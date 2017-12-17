@@ -42,4 +42,10 @@ public class Select_Login_Activity extends BaseActivity {
                 break;
         }
     }
+
+    //设置 手机返回键的动画
+    protected void onPause() {
+        super.onPause();
+        overridePendingTransition(0, R.anim.zoom_out);
+    }
 }

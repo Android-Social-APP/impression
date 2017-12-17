@@ -72,7 +72,8 @@ public class LoginActivity extends BaseActivity {
                 break;
             //登陆界面的用户名字 登陆按钮
             case R.id.login_user_name:
-
+                startActivity(new Intent(this,Select_Login_Activity.class));
+                overridePendingTransition(R.anim.zoom_in, R.anim.zoom);
                 break;
             //登陆界面的赞赏
             case R.id.login_text_fabulous:
