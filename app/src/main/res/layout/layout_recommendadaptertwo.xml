@@ -18,27 +18,11 @@
             android:text="12123123123132"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
-
-       <LinearLayout
-           android:orientation="horizontal"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content">
-           <ImageView
-               android:id="@+id/recommend_adapter_img_two11"
-               android:layout_width="match_parent"
-               android:layout_marginLeft="5dp"
-               android:layout_height="match_parent" />
-           <ImageView
-               android:id="@+id/recommend_adapter_img_two22"
-               android:layout_width="match_parent"
-               android:layout_marginLeft="5dp"
-               android:layout_height="match_parent" />
-           <ImageView
-               android:id="@+id/recommend_adapter_img_two33"
-               android:layout_width="match_parent"
-               android:layout_marginLeft="5dp"
-               android:layout_height="match_parent"/>
-       </LinearLayout>
+        <ImageView
+            android:id="@+id/recommend_adapter_img_two"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_height="match_parent" />
 
     </LinearLayout>
 
@@ -77,7 +61,7 @@
         <TextView
             android:id="@+id/recommend_adapter_follow_two"
             android:layout_width="wrap_content"
-            android:text="关注"
+            android:text="@string/recommend_follow"
             android:textColor="@color/red"
             android:layout_marginLeft="10dp"
             android:drawablePadding="10dp"

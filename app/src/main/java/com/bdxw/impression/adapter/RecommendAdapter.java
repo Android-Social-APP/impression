@@ -25,8 +25,8 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     private Context mContext;
     private List<RecommendBean.DataBean.ArticleBean> mRecommendBeans;
     //定义两种常量  表示三种条目类型
-    private static final int TYPE_HAS_PIC=0;
-    private static final int TYPE_NO_PIC=1;
+    private static final int TYPE_HAS_PIC = 0;
+    private static final int TYPE_NO_PIC = 1;
 
     public RecommendAdapter(Context context, List<RecommendBean.DataBean.ArticleBean> recommendBeans) {
         mContext = context;
@@ -36,10 +36,10 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     //多条目需要重写的方法
     @Override
     public int getItemViewType(int position) {
-        if (position%2==0){
+        if (position % 2 == 0) {
 
             return TYPE_HAS_PIC;
-        }else{
+        } else {
             return TYPE_NO_PIC;
         }
     }
@@ -47,15 +47,15 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        if (viewType==TYPE_HAS_PIC){
+        if (viewType == TYPE_HAS_PIC) {
             View v = View.inflate(mContext, R.layout.layout_recommendadapter, null);
             ViewHolder viewHolder = new ViewHolder(v);
             return viewHolder;
-        }else {
+        } else {
             //找到布局文件
             View vv = View.inflate(mContext, R.layout.layout_recommendadaptertwo, null);
-            ViewHolderTwo viewHolderTwo= new   ViewHolderTwo(vv);
-            return  viewHolderTwo;
+            ViewHolderTwo viewHolderTwo = new ViewHolderTwo(vv);
+            return viewHolderTwo;
         }
     }
 
@@ -73,12 +73,10 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                 public void onClick(View v) {
                 }
             });
-        }else if (holder instanceof ViewHolderTwo){
+        } else if (holder instanceof ViewHolderTwo) {
             ViewHolderTwo viewHolderTwo = (ViewHolderTwo) holder;
-            viewHolderTwo.recommend_adapter_tv_two.setText(mRecommendBeans.get(position).getTitle());
-            Glide.with(mContext).load(mRecommendBeans.get(position).getFace()).into(viewHolderTwo.recommend_adapter_img_two11);
-            Glide.with(mContext).load(mRecommendBeans.get(position).getFace()).into(viewHolderTwo.recommend_adapter_img_two22);
-            Glide.with(mContext).load(mRecommendBeans.get(position).getFace()).into(viewHolderTwo.recommend_adapter_img_two33);
+            viewHolderTwo.recommend_adapter_tv_two.setText(mRecommendBeans.get(position).getSummary());
+            Glide.with(mContext).load(mRecommendBeans.get(position).getFace()).into(viewHolderTwo.recommend_adapter_img_two);
             viewHolderTwo.recommend_adapter_admire_two.setText(mRecommendBeans.get(position).getRead_count());
             viewHolderTwo.recommend_adapter_comment_two.setText(mRecommendBeans.get(position).getComment_count());
             viewHolderTwo.recommend_adapter_follow_two.setOnClickListener(new View.OnClickListener() {
@@ -109,31 +107,31 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             super(itemView);
             recommend_adapter_tv = itemView.findViewById(R.id.recommend_adapter_tv);
             recommend_adapter_img = itemView.findViewById(R.id.recommend_adapter_img);
-            recommend_adapter_comment=itemView.findViewById(R.id.recommend_adapter_comment);
-            recommend_adapter_admire=itemView.findViewById(R.id.recommend_adapter_admire);
-            recommend_adapter_data=itemView.findViewById(R.id.recommend_adapter_data);
-            recommend_adapter_follow=itemView.findViewById(R.id.recommend_adapter_follow);
+            recommend_adapter_comment = itemView.findViewById(R.id.recommend_adapter_comment);
+            recommend_adapter_admire = itemView.findViewById(R.id.recommend_adapter_admire);
+            recommend_adapter_data = itemView.findViewById(R.id.recommend_adapter_data);
+            recommend_adapter_follow = itemView.findViewById(R.id.recommend_adapter_follow);
         }
     }
-    class ViewHolderTwo extends RecyclerView.ViewHolder{
+
+    class ViewHolderTwo extends RecyclerView.ViewHolder {
         TextView recommend_adapter_tv_two,
                 recommend_adapter_comment_two,
                 recommend_adapter_admire_two,
                 recommend_adapter_data_two,
                 recommend_adapter_follow_two;
 
-        ImageView recommend_adapter_img_two11,recommend_adapter_img_two22,recommend_adapter_img_two33;
+        ImageView recommend_adapter_img_two;
+
         public ViewHolderTwo(View itemView) {
             super(itemView);
 
             recommend_adapter_tv_two = itemView.findViewById(R.id.recommend_adapter_tv_two);
-            recommend_adapter_img_two11 = itemView.findViewById(R.id.recommend_adapter_img_two11);
-            recommend_adapter_img_two22 = itemView.findViewById(R.id.recommend_adapter_img_two22);
-            recommend_adapter_img_two33 = itemView.findViewById(R.id.recommend_adapter_img_two33);
-            recommend_adapter_comment_two=itemView.findViewById(R.id.recommend_adapter_comment_two);
-            recommend_adapter_admire_two=itemView.findViewById(R.id.recommend_adapter_admire_two);
-            recommend_adapter_data_two=itemView.findViewById(R.id.recommend_adapter_data_two);
-            recommend_adapter_follow_two=itemView.findViewById(R.id.recommend_adapter_follow_two);
+            recommend_adapter_img_two = itemView.findViewById(R.id.recommend_adapter_img_two);
+            recommend_adapter_comment_two = itemView.findViewById(R.id.recommend_adapter_comment_two);
+            recommend_adapter_admire_two = itemView.findViewById(R.id.recommend_adapter_admire_two);
+            recommend_adapter_data_two = itemView.findViewById(R.id.recommend_adapter_data_two);
+            recommend_adapter_follow_two = itemView.findViewById(R.id.recommend_adapter_follow_two);
         }
     }
 }
