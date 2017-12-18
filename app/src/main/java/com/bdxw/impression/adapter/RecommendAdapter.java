@@ -76,7 +76,9 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         } else if (holder instanceof ViewHolderTwo) {
             ViewHolderTwo viewHolderTwo = (ViewHolderTwo) holder;
             viewHolderTwo.recommend_adapter_tv_two.setText(mRecommendBeans.get(position).getSummary());
-            Glide.with(mContext).load(mRecommendBeans.get(position).getFace()).into(viewHolderTwo.recommend_adapter_img_two);
+            Glide.with(mContext).load(mRecommendBeans.get(position).getFace()).into(viewHolderTwo.recommend_adapter_img_two11);
+            Glide.with(mContext).load(mRecommendBeans.get(position).getFace()).into(viewHolderTwo.recommend_adapter_img_two22);
+            Glide.with(mContext).load(mRecommendBeans.get(position).getFace()).into(viewHolderTwo.recommend_adapter_img_two33);
             viewHolderTwo.recommend_adapter_admire_two.setText(mRecommendBeans.get(position).getRead_count());
             viewHolderTwo.recommend_adapter_comment_two.setText(mRecommendBeans.get(position).getComment_count());
             viewHolderTwo.recommend_adapter_follow_two.setOnClickListener(new View.OnClickListener() {
@@ -121,13 +123,15 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                 recommend_adapter_data_two,
                 recommend_adapter_follow_two;
 
-        ImageView recommend_adapter_img_two;
+        ImageView recommend_adapter_img_two11,recommend_adapter_img_two22,recommend_adapter_img_two33;
 
         public ViewHolderTwo(View itemView) {
             super(itemView);
 
             recommend_adapter_tv_two = itemView.findViewById(R.id.recommend_adapter_tv_two);
-            recommend_adapter_img_two = itemView.findViewById(R.id.recommend_adapter_img_two);
+            recommend_adapter_img_two11 = itemView.findViewById(R.id.recommend_adapter_img_two11);
+            recommend_adapter_img_two22 = itemView.findViewById(R.id.recommend_adapter_img_two22);
+            recommend_adapter_img_two33 = itemView.findViewById(R.id.recommend_adapter_img_two33);
             recommend_adapter_comment_two = itemView.findViewById(R.id.recommend_adapter_comment_two);
             recommend_adapter_admire_two = itemView.findViewById(R.id.recommend_adapter_admire_two);
             recommend_adapter_data_two = itemView.findViewById(R.id.recommend_adapter_data_two);
