@@ -87,6 +87,18 @@
             android:gravity="center_vertical|right"
             android:drawableLeft="@mipmap/img_attention"
             android:layout_height="match_parent" />
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/recommend_adapter_unfollow_two"
+            android:layout_width="wrap_content"
+            android:text="@string/recommend_follow"
+            android:textColor="@color/lightgray"
+            android:layout_marginLeft="10dp"
+            android:drawablePadding="10dp"
+            android:layout_marginRight="15dp"
+            android:gravity="center_vertical|right"
+            android:drawableLeft="@mipmap/img_already_attention"
+            android:layout_height="match_parent" />
     </LinearLayout>
 
 </LinearLayout>
