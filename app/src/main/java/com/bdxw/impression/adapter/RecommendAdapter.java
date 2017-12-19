@@ -93,15 +93,14 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     public int getItemCount() {
         return mRecommendBeans != null ? mRecommendBeans.size() : 0;
     }
-
+    //第一个VIewHolder
     class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView
-                recommend_adapter_tv,
-                recommend_adapter_comment,
-                recommend_adapter_admire,
-                recommend_adapter_data,
-                recommend_adapter_follow;
+        TextView recommend_adapter_tv,       //文字
+                recommend_adapter_comment,  //评论
+                recommend_adapter_admire,   // 赞
+                recommend_adapter_data,      //时间
+                recommend_adapter_follow;   //关注
 
         ImageView recommend_adapter_img;
 
@@ -115,19 +114,18 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             recommend_adapter_follow = itemView.findViewById(R.id.recommend_adapter_follow);
         }
     }
-
+    //第二个ViewHolder
     class ViewHolderTwo extends RecyclerView.ViewHolder {
-        TextView recommend_adapter_tv_two,
-                recommend_adapter_comment_two,
-                recommend_adapter_admire_two,
-                recommend_adapter_data_two,
-                recommend_adapter_follow_two;
+        TextView recommend_adapter_tv_two,        //文字
+                recommend_adapter_comment_two,   //评论
+                recommend_adapter_admire_two,    // 赞
+                recommend_adapter_data_two,      //时间
+                recommend_adapter_follow_two;   //关注
 
         ImageView recommend_adapter_img_two11,recommend_adapter_img_two22,recommend_adapter_img_two33;
 
         public ViewHolderTwo(View itemView) {
             super(itemView);
-
             recommend_adapter_tv_two = itemView.findViewById(R.id.recommend_adapter_tv_two);
             recommend_adapter_img_two11 = itemView.findViewById(R.id.recommend_adapter_img_two11);
             recommend_adapter_img_two22 = itemView.findViewById(R.id.recommend_adapter_img_two22);

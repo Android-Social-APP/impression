@@ -1,20 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:background="@color/gray"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent">
 
 
     <com.liaoinstan.springview.widget.SpringView
         android:id="@+id/recommend_springview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recommend_recyclerview"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
     </com.liaoinstan.springview.widget.SpringView>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+       >
 
+        <ImageView
+            android:id="@+id/recommend_rcy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone"
+            android:src="@mipmap/img_default_prompt" />
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/recommend_rcy2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/recommend_rcy"
+            android:gravity="center"
+            android:visibility="gone"
+            android:text="@string/fault_tolerant_page"
+            android:textColor="@color/tan" />
+    </RelativeLayout>
+
+</RelativeLayout>

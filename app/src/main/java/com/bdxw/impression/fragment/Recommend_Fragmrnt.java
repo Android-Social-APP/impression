@@ -8,12 +8,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bdxw.impression.AppConstants;
 import com.bdxw.impression.R;
 import com.bdxw.impression.adapter.RecommendAdapter;
 import com.bdxw.impression.base.BaseFragment;
 import com.bdxw.impression.bean.RecommendBean;
+import com.bdxw.impression.utils.ConnectionUtil;
 import com.bdxw.impression.utils.OkHttpUtils;
 import com.google.gson.Gson;
 import com.liaoinstan.springview.container.DefaultFooter;
@@ -26,6 +29,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 import okhttp3.Request;
 
@@ -42,7 +46,10 @@ public class Recommend_Fragmrnt extends BaseFragment {
     RecyclerView mRecommendRecyclerview;
     @BindView(R.id.recommend_springview)
     SpringView mRecommendSpringview;
-
+    @BindView(R.id.recommend_rcy2)
+    TextView mRecommendRcy2;
+    @BindView(R.id.recommend_rcy)
+    ImageView mRecommendRcy;
     private List<RecommendBean.DataBean.ArticleBean> mRecommendBeans = new ArrayList<>();
     private RecommendAdapter mRecommendAdapter;
     private int page = 1;
@@ -62,41 +69,57 @@ public class Recommend_Fragmrnt extends BaseFragment {
 
     @Override
     protected void initData() {
-        getNetData();
-        mRecommendSpringview.setType(SpringView.Type.FOLLOW);
-        mRecommendSpringview.setListener(new SpringView.OnFreshListener() {
-            //上拉刷新
+        //网络判断
+        if (!ConnectionUtil.isConn(getActivity())) {
+            //当没有网络的时候 显示容错页  隐藏RecyclerView
+            mRecommendRcy.setVisibility(View.VISIBLE);
+            mRecommendRcy2.setVisibility(View.VISIBLE);
+            mRecommendSpringview.setVisibility(View.GONE);
+        } else {
+            getNetData();
+        }
+        /**
+         *  点击容错页的图片时 再次判断有没有网络
+         *  有的话  隐藏容错页  展示数据
+         */
+        mRecommendRcy.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onRefresh() {
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        page--;
-                        getNetData();
-                        mRecommendSpringview.onFinishFreshAndLoad();
-                    }
-                }, 1000);
-            }
-            //下拉加载
-            @Override
-            public void onLoadmore() {
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        page++;
-                        getNetData();
-                        mRecommendSpringview.onFinishFreshAndLoad();
-                    }
-                }, 1000);
+            public void onClick(View v) {
+                //网络判断
+                if (!ConnectionUtil.isConn(getActivity())) {
+                    //当没有网络的时候 显示容错页  隐藏RecyclerView
+                    mRecommendRcy.setVisibility(View.VISIBLE);
+                    mRecommendRcy2.setVisibility(View.VISIBLE);
+                    mRecommendSpringview.setVisibility(View.GONE);
+                } else {
+                    mRecommendRcy.setVisibility(View.GONE);
+                    mRecommendRcy2.setVisibility(View.GONE);
+                    mRecommendSpringview.setVisibility(View.VISIBLE);
+                    getNetData();
+                }
             }
         });
-        mRecommendSpringview.setHeader(new DefaultHeader(getActivity()));
-        mRecommendSpringview.setFooter(new DefaultFooter(getActivity()));
     }
 
     @Override
     protected void initListener() {
 
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        /**
+         *      判断网络是否开启 如果没有开启跳转到设置界面，开启的话直接跳转到搜索界面
+         */
+        if (!ConnectionUtil.isConn(getActivity())) {
+            //当没有网络的时候 显示容错页  隐藏RecyclerView
+            mRecommendRcy.setVisibility(View.VISIBLE);
+            mRecommendRcy2.setVisibility(View.VISIBLE);
+            mRecommendSpringview.setVisibility(View.GONE);
+        } else {
+            getNetData();
+        }
     }
 
     private void getNetData() {
@@ -118,5 +141,37 @@ public class Recommend_Fragmrnt extends BaseFragment {
                 mRecommendRecyclerview.setAdapter(mRecommendAdapter);
             }
         });
+
+        //配置SpringView
+        mRecommendSpringview.setType(SpringView.Type.FOLLOW);
+        mRecommendSpringview.setListener(new SpringView.OnFreshListener() {
+            //上拉刷新
+            @Override
+            public void onRefresh() {
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        page--;
+                        getNetData();
+                        mRecommendSpringview.onFinishFreshAndLoad();
+                    }
+                }, 1000);
+            }
+
+            //下拉加载
+            @Override
+            public void onLoadmore() {
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        page++;
+                        getNetData();
+                        mRecommendSpringview.onFinishFreshAndLoad();
+                    }
+                }, 1000);
+            }
+        });
+        mRecommendSpringview.setHeader(new DefaultHeader(getActivity()));
+        mRecommendSpringview.setFooter(new DefaultFooter(getActivity()));
     }
 }
