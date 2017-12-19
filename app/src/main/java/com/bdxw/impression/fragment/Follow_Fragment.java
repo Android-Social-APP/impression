@@ -25,9 +25,4 @@ public class Follow_Fragment extends BaseFragment {
     protected void initData() {
 
     }
-
-    @Override
-    protected void initListener() {
-
-    }
 }

@@ -15,6 +15,7 @@ import com.bdxw.impression.AppConstants;
 import com.bdxw.impression.R;
 import com.bdxw.impression.adapter.RecommendAdapter;
 import com.bdxw.impression.base.BaseFragment;
+import com.bdxw.impression.bean.MoretopicsBean;
 import com.bdxw.impression.bean.RecommendBean;
 import com.bdxw.impression.utils.ConnectionUtil;
 import com.bdxw.impression.utils.OkHttpUtils;
@@ -80,7 +81,8 @@ public class Recommend_Fragmrnt extends BaseFragment {
         }
         /**
          *  点击容错页的图片时 再次判断有没有网络
-         *  有的话  隐藏容错页  展示数据
+         *  有数据     隐藏容错页       展示数据
+         *  没有数据  继续显示容错页
          */
         mRecommendRcy.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,10 +103,6 @@ public class Recommend_Fragmrnt extends BaseFragment {
         });
     }
 
-    @Override
-    protected void initListener() {
-
-    }
 
     @Override
     public void onResume() {

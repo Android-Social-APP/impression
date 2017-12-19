@@ -4,7 +4,7 @@ android {
     compileSdkVersion 26
     defaultConfig {
         applicationId "com.bdxw.impression"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -14,15 +14,6 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-        //QQ登陆的签名文件密码
-        signingConfigs {
-            debug {
-                storeFile file('debug.keystore')
-                storePassword "android"
-                keyAlias "androiddebugkey"
-                keyPassword "android"
-            }
         }
     }
     buildToolsVersion '26.0.2'

@@ -57,7 +57,9 @@
             android:name="UMENG_APPKEY"
             android:value="5a3364dab27b0a118e00005d"></meta-data>
 
-        <activity android:name=".activity.Select_Login_Activity"></activity>
+        <activity
+            android:name=".activity.Select_Login_Activity"
+            android:launchMode="singleTask"></activity>
     </application>
 
 </manifest>

@@ -25,7 +25,6 @@ public abstract class BaseFragment extends Fragment {
         mBind = ButterKnife.bind(this, view);
         initView();
         initData();
-        initListener();
         return view;
     }
 
@@ -35,7 +34,6 @@ public abstract class BaseFragment extends Fragment {
 
     protected abstract void initData();
 
-    protected abstract void initListener();
 
     @Override
     public void onDestroyView() {

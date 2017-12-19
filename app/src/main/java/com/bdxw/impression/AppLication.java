@@ -2,8 +2,6 @@ package com.bdxw.impression;
 
 import android.app.Application;
 
-import com.umeng.socialize.PlatformConfig;
-import com.umeng.socialize.UMShareAPI;
 
 /**
  * Name: AppLication
@@ -16,9 +14,5 @@ public class AppLication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        //QQ的Key
-        PlatformConfig.setQQZone("1106492039", "r9rzq90OHuSDZSpo");
-        //防止意外发生
-        UMShareAPI.get(this);
     }
 }
