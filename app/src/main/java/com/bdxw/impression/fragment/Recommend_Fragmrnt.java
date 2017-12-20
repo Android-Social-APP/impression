@@ -1,13 +1,10 @@
 package com.bdxw.impression.fragment;
 
-import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,7 +12,6 @@ import com.bdxw.impression.AppConstants;
 import com.bdxw.impression.R;
 import com.bdxw.impression.adapter.RecommendAdapter;
 import com.bdxw.impression.base.BaseFragment;
-import com.bdxw.impression.bean.MoretopicsBean;
 import com.bdxw.impression.bean.RecommendBean;
 import com.bdxw.impression.utils.ConnectionUtil;
 import com.bdxw.impression.utils.OkHttpUtils;
@@ -29,9 +25,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-import butterknife.Unbinder;
 import okhttp3.Request;
 
 /**
@@ -41,7 +34,6 @@ import okhttp3.Request;
  * Date: 2017-12-13 16:32
  */
 public class Recommend_Fragmrnt extends BaseFragment {
-
 
     @BindView(R.id.recommend_recyclerview)
     RecyclerView mRecommendRecyclerview;
@@ -122,7 +114,7 @@ public class Recommend_Fragmrnt extends BaseFragment {
 
     private void getNetData() {
         //OkHttp请求 推荐页面的 网络数据
-        OkHttpUtils.getAsync(AppConstants.Recommend + page, new OkHttpUtils.DataCallBack() {
+        OkHttpUtils.getAsync(AppConstants.RECOMMEND + page, new OkHttpUtils.DataCallBack() {
             @Override
             public void requestFailure(Request request, IOException e) {
                 //打印错误信息的日志

@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Name: RecommendBean
  * Author: 王兵洋的Computer
- * Comment: //TODO
+ * Comment: //TODO 推荐的Bean类
  * Date: 2017-12-14 20:53
  */
 public class RecommendBean {

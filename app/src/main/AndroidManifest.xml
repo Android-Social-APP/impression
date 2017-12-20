@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.bdxw.impression">
+
     <!-- 友盟登陆权限 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -33,6 +34,9 @@
             android:launchMode="singleTask" />
         <activity
             android:name=".activity.Select_Login_Activity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".activity.All_topicsActivity"
             android:launchMode="singleTask"></activity>
     </application>
 </manifest>

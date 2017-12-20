@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bdxw.impression.R;
-import com.bdxw.impression.adapter.FmentAdapter;
+import com.bdxw.impression.adapter.VIewPagerAdapter;
 import com.bdxw.impression.base.BaseActivity;
 import com.bdxw.impression.fragment.Follow_Fragment;
 import com.bdxw.impression.fragment.Recommend_Fragmrnt;
@@ -28,7 +28,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     private ViewPager mVp;
     private List<Fragment> mFragmentList;
     private FragmentManager mManager;
-    private FmentAdapter mFmentAdapter;
+    private VIewPagerAdapter mFmentAdapter;
     private View mLineO;
     private View mLineT;
     private ImageView mHomeUser;
@@ -67,7 +67,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         //设置Fragment的管理器
         mManager = getSupportFragmentManager();
         //Fragment的适配器
-        mFmentAdapter = new FmentAdapter(mManager, mFragmentList);
+        mFmentAdapter = new VIewPagerAdapter(mManager, mFragmentList);
         mVp.setAdapter(mFmentAdapter);
         //ViewPager与TextView进行关联
         mVp.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {

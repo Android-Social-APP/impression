@@ -44,11 +44,6 @@ public class LoginActivity extends BaseActivity {
     TextView mLoginShareDrawableLeft;
     @BindView(R.id.login_exit)
     ImageView mLoginExit;
-    //调用QQ接口的方法获取QQ信息
-    private List<String> mList = new ArrayList<String>();
-    private boolean mBoolean;
-    private SharedPreferences mSharedPreferences;
-    private boolean isBoolean;
 
     @Override
     protected int bindLayoutView() {
@@ -62,20 +57,6 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        //回调用户信息 完成QQ登陆
-        SharedPreferences sharedPreferences = LoginActivity.this.getSharedPreferences("ZT", MODE_PRIVATE);
-        mBoolean = sharedPreferences.getBoolean("zt", false);
-        mSharedPreferences = LoginActivity.this.getSharedPreferences("QQ", MODE_PRIVATE);
-        isBoolean = mSharedPreferences.getBoolean("状态", false);
-        if (isBoolean == true) {
-            String touxiang = mSharedPreferences.getString("头像", null);
-            //获取QQ头像并设置成圆形头像
-            Glide.with(this).load(touxiang).bitmapTransform(new CropCircleTransformation(this)).into(mLoginUserImg);
-            //获取QQ昵称
-            String nc = mSharedPreferences.getString("昵称", null);
-            //获取昵称并显示在TextView上
-            mLoginUserName.setText(nc);
-        }
     }
 
     //设置 手机返回键的动画
@@ -107,6 +88,8 @@ public class LoginActivity extends BaseActivity {
                 break;
             // 登陆界面的 全部话题
             case R.id.login_topic:
+                startActivity(new Intent(LoginActivity.this, All_topicsActivity.class));
+                finish();
                 break;
             // 登陆界面的全部文章
             case R.id.login_see_hear:

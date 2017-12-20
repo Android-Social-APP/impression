@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Name: MoretopicsBean
  * Author: 王兵洋的Computer
- * Comment: //TODO
+ * Comment: //TODO  全部话题的Bean类
  * Date: 2017-12-19 15:42
  */
 public class MoretopicsBean {

@@ -11,11 +11,11 @@ import java.util.List;
  * Comment: //TODO  ViewPager 的适配器
  * Date: 2017-12-13 16:46
  */
-public class FmentAdapter extends FragmentPagerAdapter {
+public class VIewPagerAdapter extends FragmentPagerAdapter {
 
     private List<Fragment> mFragmentList;
 
-    public FmentAdapter(FragmentManager fm, List<Fragment> fragmentList) {
+    public VIewPagerAdapter(FragmentManager fm, List<Fragment> fragmentList) {
         super(fm);
         mFragmentList = fragmentList;
     }
