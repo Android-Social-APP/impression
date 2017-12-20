@@ -3,6 +3,7 @@ package com.bdxw.impression.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -35,7 +36,7 @@ public class All_topicsActivity extends BaseActivity {
     private AllTopicsAdapter mAllTopicsAdapter;
     private LinearLayoutManager mManager;
     private TextView mAllTopicBack;
-    private SpringView mAllTopicSpringView;
+    private SwipeRefreshLayout mSwipeRefreshLayout;
     private int page = 1;
 
     @Override
@@ -47,7 +48,7 @@ public class All_topicsActivity extends BaseActivity {
     protected void initView() {
         mTopicsRecyclerview = findViewById(R.id.topics_recyclerview);
         mAllTopicBack = findViewById(R.id.all_topic_back);
-        mAllTopicSpringView = findViewById(R.id.all_topic_springview);
+        mSwipeRefreshLayout = findViewById(R.id.all_topic_swiperefreshlayout);
         mManager = new LinearLayoutManager(All_topicsActivity.this);
         mTopicsRecyclerview.setLayoutManager(mManager);
         //返回按钮
@@ -56,6 +57,15 @@ public class All_topicsActivity extends BaseActivity {
             public void onClick(View v) {
                 startActivity(new Intent(All_topicsActivity.this, LoginActivity.class));
                 finish();
+            }
+        });
+        //刷新页面
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+//                getNetData();
+                mAllTopicsAdapter.notifyDataSetChanged();
+                mSwipeRefreshLayout.setRefreshing(false);
             }
         });
 
@@ -83,38 +93,6 @@ public class All_topicsActivity extends BaseActivity {
                 mAllTopicsAdapter = new AllTopicsAdapter(All_topicsActivity.this, mTopicBeans);
                 //把集合的值 赋给RecyclerView
                 mTopicsRecyclerview.setAdapter(mAllTopicsAdapter);
-
-                //配置SpringView
-                mAllTopicSpringView.setType(SpringView.Type.FOLLOW);
-                mAllTopicSpringView.setListener(new SpringView.OnFreshListener() {
-                    //上拉刷新
-                    @Override
-                    public void onRefresh() {
-                        new Handler().postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                page--;
-                                getNetData();
-                                mAllTopicSpringView.onFinishFreshAndLoad();
-                            }
-                        }, 1000);
-                    }
-
-                    //下拉加载
-                    @Override
-                    public void onLoadmore() {
-                        new Handler().postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                page++;
-                                getNetData();
-                                mAllTopicSpringView.onFinishFreshAndLoad();
-                            }
-                        }, 1000);
-                    }
-                });
-                mAllTopicSpringView.setHeader(new DefaultHeader(All_topicsActivity.this));
-                mAllTopicSpringView.setFooter(new DefaultFooter(All_topicsActivity.this));
             }
         });
     }
