@@ -26,6 +26,7 @@ public abstract class BaseActivity extends FragmentActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(bindLayoutView());
+        mBind = ButterKnife.bind(this);
         initView();
         initData();
         //设置沉浸式
@@ -33,7 +34,6 @@ public abstract class BaseActivity extends FragmentActivity {
                 fitsSystemWindows(true)  //解决了 状态栏与布局重叠的问题
                 .barAlpha(0.3f)
                 .init();
-        mBind = ButterKnife.bind(this);
     }
     //绑定视图
     protected abstract int bindLayoutView();

@@ -1,19 +1,16 @@
 package com.bdxw.impression.activity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.os.Bundle;
+
 import android.view.View;
 import android.widget.TextView;
 
 import com.bdxw.impression.R;
 import com.bdxw.impression.base.BaseActivity;
 
-import java.util.ArrayList;
-import java.util.List;
+
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class Select_Login_Activity extends BaseActivity {
@@ -45,6 +42,8 @@ public class Select_Login_Activity extends BaseActivity {
             case R.id.login_wechat:
                 break;
             case R.id.login_qq:
+                startActivity(new Intent(Select_Login_Activity.this, QQLoginActivity.class));
+                finish();
                 break;
         }
     }

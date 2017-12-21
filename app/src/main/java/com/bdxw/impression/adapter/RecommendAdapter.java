@@ -14,6 +14,7 @@ import com.bdxw.impression.R;
 import com.bdxw.impression.bean.RecommendBean;
 import com.bumptech.glide.Glide;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,15 +27,23 @@ import java.util.List;
 public class RecommendAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private Context mContext;
-    private List<RecommendBean.DataBean.ArticleBean> mRecommendBeans;
+    private List<RecommendBean.DataBean.ArticleBean> mRecommendBeans = new ArrayList<>();
     //定义两种常量  表示三种条目类型
     private static final int TYPE_HAS_PIC = 0;
     private static final int TYPE_NO_PIC = 1;
 
-
-    public RecommendAdapter(Context context, List<RecommendBean.DataBean.ArticleBean> recommendBeans) {
+    public RecommendAdapter(Context context) {
         mContext = context;
-        mRecommendBeans = recommendBeans;
+    }
+
+    public void addData(List<RecommendBean.DataBean.ArticleBean> recommendBeans) {
+        this.mRecommendBeans.addAll(recommendBeans);
+        notifyDataSetChanged();
+    }
+
+    public void updateData(List<RecommendBean.DataBean.ArticleBean> recommendBeans) {
+        this.mRecommendBeans.clear();
+        addData(recommendBeans);
     }
 
     //多条目需要重写的方法

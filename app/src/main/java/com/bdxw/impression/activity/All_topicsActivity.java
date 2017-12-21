@@ -1,8 +1,6 @@
 package com.bdxw.impression.activity;
 
 import android.content.Intent;
-import android.os.Bundle;
-import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -17,16 +15,11 @@ import com.bdxw.impression.base.BaseActivity;
 import com.bdxw.impression.bean.MoretopicsBean;
 import com.bdxw.impression.utils.OkHttpUtils;
 import com.google.gson.Gson;
-import com.liaoinstan.springview.container.DefaultFooter;
-import com.liaoinstan.springview.container.DefaultHeader;
-import com.liaoinstan.springview.widget.SpringView;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import okhttp3.Request;
 
 public class All_topicsActivity extends BaseActivity {
@@ -63,7 +56,7 @@ public class All_topicsActivity extends BaseActivity {
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-//                getNetData();
+                //getNetData();
                 mAllTopicsAdapter.notifyDataSetChanged();
                 mSwipeRefreshLayout.setRefreshing(false);
             }
@@ -81,7 +74,7 @@ public class All_topicsActivity extends BaseActivity {
         OkHttpUtils.getAsync(AppConstants.ALLTOPIC + page + AppConstants.ALLTOPIC_T, new OkHttpUtils.DataCallBack() {
             @Override
             public void requestFailure(Request request, IOException e) {
-                //打印错误信息的日志
+                //打印错误信息的日志2
                 Log.e("Recommend_Fragmrnt", "request:" + request);
             }
 

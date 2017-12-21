@@ -54,10 +54,42 @@ public class Recommend_Fragmrnt extends BaseFragment {
     }
 
     @Override
-    protected void initView() {
+    protected void initView() { 
         //设置RecyclerView的布局
         mManager = new LinearLayoutManager(getActivity());
         mRecommendRecyclerview.setLayoutManager(mManager);
+        //配置SpringView
+        mRecommendSpringview.setType(SpringView.Type.FOLLOW);
+        mRecommendSpringview.setListener(new SpringView.OnFreshListener() {
+            //上拉刷新
+            @Override
+            public void onRefresh() {
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        mRecommendAdapter.updateData(mRecommendBeans);
+                        getNetData();
+                        mRecommendSpringview.onFinishFreshAndLoad();
+                    }
+                }, 1000);
+            }
+
+            //下拉加载
+            @Override
+            public void onLoadmore() {
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        page++;
+                        mRecommendAdapter.addData(mRecommendBeans);
+                        getNetData();
+                        mRecommendSpringview.onFinishFreshAndLoad();
+                    }
+                }, 1000);
+            }
+        });
+        mRecommendSpringview.setHeader(new DefaultHeader(getActivity()));
+        mRecommendSpringview.setFooter(new DefaultFooter(getActivity()));
     }
 
     @Override
@@ -126,42 +158,12 @@ public class Recommend_Fragmrnt extends BaseFragment {
                 //把数据添加到集合
                 mRecommendBeans.addAll(new Gson().fromJson(result, RecommendBean.class).getData().getArticle());
                 // new适配器
-                mRecommendAdapter = new RecommendAdapter(getActivity(), mRecommendBeans);
+                mRecommendAdapter = new RecommendAdapter(getActivity());
+                mRecommendAdapter.addData(mRecommendBeans);
                 //把集合的值 赋给RecyclerView
                 mRecommendRecyclerview.setAdapter(mRecommendAdapter);
             }
         });
 
-        //配置SpringView
-        mRecommendSpringview.setType(SpringView.Type.FOLLOW);
-        mRecommendSpringview.setListener(new SpringView.OnFreshListener() {
-            //上拉刷新
-            @Override
-            public void onRefresh() {
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        page--;
-                        getNetData();
-                        mRecommendSpringview.onFinishFreshAndLoad();
-                    }
-                }, 1000);
-            }
-
-            //下拉加载
-            @Override
-            public void onLoadmore() {
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        page++;
-                        getNetData();
-                        mRecommendSpringview.onFinishFreshAndLoad();
-                    }
-                }, 1000);
-            }
-        });
-        mRecommendSpringview.setHeader(new DefaultHeader(getActivity()));
-        mRecommendSpringview.setFooter(new DefaultFooter(getActivity()));
     }
 }

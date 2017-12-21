@@ -43,4 +43,10 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     //SpringView
     compile 'com.liaoinstan.springview:library:1.3.0'
+    implementation files('libs/SocialSDK_QQ_Simplify.jar')
+    implementation files('libs/umeng_shareboard_widget.jar')
+    implementation files('libs/umeng_social_api.jar')
+    implementation files('libs/umeng_social_net.jar')
+    implementation files('libs/umeng_social_shareboard.jar')
+    implementation files('libs/umeng_social_tool.jar')
 }

@@ -26,6 +26,7 @@
             android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -37,6 +38,37 @@
             android:launchMode="singleTask" />
         <activity
             android:name=".activity.All_topicsActivity"
+            android:launchMode="singleTask" />
+        <!-- QQ精简版 -->
+        <activity
+            android:name="com.umeng.qq.tencent.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="tencent100424468" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.umeng.qq.tencent.AssistActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!-- 添加友盟APPKey -->
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="5a3364dab27b0a118e00005d" />
+
+        <activity
+            android:name=".activity.QQLoginActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".activity.SignOutActivity"
             android:launchMode="singleTask"></activity>
     </application>
+
 </manifest>
