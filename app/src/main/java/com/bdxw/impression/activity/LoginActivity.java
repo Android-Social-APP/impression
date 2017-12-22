@@ -30,6 +30,7 @@ public class LoginActivity extends BaseActivity {
     ImageView mLoginUserImg;
     @BindView(R.id.login_user_name)
     TextView mLoginUserName;
+    TextView mLoginUserName2;
     @BindView(R.id.login_text_fabulous)
     TextView mLoginTextFabulous;
     @BindView(R.id.login_text_fensi)
@@ -48,10 +49,9 @@ public class LoginActivity extends BaseActivity {
     ImageView mLoginExit;
 
     //调用QQ接口的方法获取QQ信息
-    private List<String> mList = new ArrayList<String>();
-    private boolean zt1;
-    private SharedPreferences qq2;
-    private boolean qq1;
+    private boolean mBoolean;
+    private SharedPreferences mSharedPreferences;
+    private boolean isBoolean;
 
     @Override
     protected int bindLayoutView() {
@@ -61,6 +61,7 @@ public class LoginActivity extends BaseActivity {
     @Override
     protected void initView() {
         mLoginUserName = findViewById(R.id.login_user_name);
+        mLoginUserName2 = findViewById(R.id.login_user_name2);
         mLoginUserImg = findViewById(R.id.login_user_img);
     }
 
@@ -68,21 +69,23 @@ public class LoginActivity extends BaseActivity {
     protected void initData() {
         //回调用户信息 完成QQ登陆
         SharedPreferences zt = LoginActivity.this.getSharedPreferences("ZT", MODE_PRIVATE);
-        zt1 = zt.getBoolean("zt", false);
-        qq2 = LoginActivity.this.getSharedPreferences("QQ", MODE_PRIVATE);
-        qq1 = qq2.getBoolean("状态", false);
-        if (qq1 == true) {
-            String touxiang = qq2.getString("头像", null);
+        mBoolean = zt.getBoolean("zt", false);
+        mSharedPreferences = LoginActivity.this.getSharedPreferences("QQ", MODE_PRIVATE);
+        isBoolean = mSharedPreferences.getBoolean("状态", false);
+        if (isBoolean == true) {
+            String touxiang = mSharedPreferences.getString("头像", null);
             //获取QQ头像并设置成圆形头像
             Glide.with(this).load(touxiang)
                     .bitmapTransform(new CropCircleTransformation(this))
                     .into(mLoginUserImg);
             //获取QQ昵称
-            String nc = qq2.getString("昵称", null);
+            String nc = mSharedPreferences.getString("昵称", null);
             //获取昵称并显示在TextView上
-            mLoginUserName.setText(nc);
-            mLoginUserName.setBackgroundColor(Color.parseColor("#00000000"));
-        } else if (zt1 == true) {
+            mLoginUserName2.setText(nc);
+            mLoginUserName2.setBackgroundColor(Color.parseColor("#00000000"));
+            mLoginUserName2.setVisibility(View.VISIBLE);
+            mLoginUserName.setVisibility(View.GONE);
+        } else if (mBoolean == true) {
             String sj = zt.getString("sj", null);
             mLoginUserName.setText(sj);
         }
@@ -119,6 +122,7 @@ public class LoginActivity extends BaseActivity {
             // 登陆界面的 全部话题
             case R.id.login_topic:
                 startActivity(new Intent(LoginActivity.this, All_topicsActivity.class));
+                overridePendingTransition(R.anim.zoom_in, R.anim.zoom);
                 finish();
                 break;
             // 登陆界面的全部文章

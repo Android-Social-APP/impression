@@ -15,9 +15,9 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:checked="true"
-            android:textColor="@color/bank"
             android:gravity="center"
-            android:text="@string/recommend" />
+            android:text="@string/recommend"
+            android:textColor="@color/bank" />
 
         <TextView
             android:id="@+id/home_follow"
@@ -25,40 +25,42 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:textColor="@color/gray"
-            android:text= "@string/follow" />
+            android:text="@string/follow"
+            android:textColor="@color/gray" />
     </LinearLayout>
 
     <LinearLayout
-        android:layout_below="@id/rg"
         android:layout_width="match_parent"
-        android:layout_height="1dp">
+        android:layout_height="1dp"
+        android:layout_below="@id/rg">
 
         <View
             android:id="@+id/line_o"
-            android:layout_weight="1"
             android:layout_width="0dp"
+            android:layout_height="match_parent"
 
             android:layout_marginEnd="90dp"
             android:layout_marginStart="75dp"
-            android:background="@color/bank"
-            android:layout_height="match_parent"/>
+            android:layout_weight="1"
+            android:background="@color/bank" />
+
         <View
             android:id="@+id/line_t"
-            android:visibility="invisible"
-            android:layout_weight="1"
-            android:layout_marginEnd="75dp"
             android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="75dp"
             android:layout_marginStart="65dp"
+            android:layout_weight="1"
             android:background="@color/bank"
-            android:layout_height="match_parent"/>
+            android:visibility="invisible" />
     </LinearLayout>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/vp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/rg" />
+        android:layout_below="@id/rg"
+        android:layout_marginTop="2dp" />
 
     <ImageView
         android:id="@+id/home_user"

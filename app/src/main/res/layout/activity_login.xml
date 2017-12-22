@@ -39,6 +39,20 @@
             android:gravity="center"
             android:text="@string/login"
             android:textColor="@color/red" />
+
+        <TextView
+            android:id="@+id/login_user_name2"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="90dp"
+            android:layout_marginRight="90dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/login"
+            android:gravity="center"
+            android:text="@string/login"
+            android:textColor="@color/red"
+            android:visibility="gone" />
         <!--收到的赞赏 我的粉丝-->
         <LinearLayout
             android:layout_width="match_parent"

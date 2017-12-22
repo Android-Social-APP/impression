@@ -49,6 +49,7 @@ public class All_topicsActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(All_topicsActivity.this, LoginActivity.class));
+                overridePendingTransition(R.anim.zoom_in, R.anim.zoom);
                 finish();
             }
         });

@@ -43,6 +43,11 @@ public class QQLoginActivity extends AppCompatActivity {
                 // 设置昵称
                 String nicheng = data.get("name");
                 edit.putString("昵称", nicheng);
+                //设置Uid
+                String uid = data.get("uid");
+                edit.putString("uid",uid);
+                Log.d("QQLoginActivity", "uid================"+uid);
+                //设置状态
                 edit.putBoolean("状态", true);
                 edit.commit();
             }

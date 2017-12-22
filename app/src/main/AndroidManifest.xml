@@ -22,7 +22,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activity.HomeActivity"
+            android:name=".activity.BootPageActivity"
             android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -68,6 +68,9 @@
             android:launchMode="singleTask" />
         <activity
             android:name=".activity.SignOutActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".activity.HomeActivity"
             android:launchMode="singleTask"></activity>
     </application>
 

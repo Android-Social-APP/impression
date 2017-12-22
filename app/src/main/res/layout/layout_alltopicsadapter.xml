@@ -18,4 +18,5 @@
         android:background="@drawable/background_topic"
         android:gravity="center"
         android:textColor="@color/white" />
+
 </RelativeLayout>
