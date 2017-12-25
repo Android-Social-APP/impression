@@ -72,6 +72,7 @@
         <activity
             android:name=".activity.HomeActivity"
             android:launchMode="singleTask"></activity>
+        <activity android:name=".activity.EditActivity"/>
     </application>
 
 </manifest>

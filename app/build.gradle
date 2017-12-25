@@ -16,7 +16,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    buildToolsVersion '26.0.2'
+    buildToolsVersion '26.0.3'
 }
 
 dependencies {
@@ -49,4 +49,6 @@ dependencies {
     implementation files('libs/umeng_social_net.jar')
     implementation files('libs/umeng_social_shareboard.jar')
     implementation files('libs/umeng_social_tool.jar')
+    //下拉<刷新>EditActivity use
+    compile 'com.baoyz.pullrefreshlayout:library:1.2.0'
 }

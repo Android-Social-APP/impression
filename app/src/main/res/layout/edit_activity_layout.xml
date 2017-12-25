@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.baoyz.widget.PullRefreshLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/img_top_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="260dp"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/ic_launcher" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="240dp"
+                    android:background="@drawable/content_edit_activity_bg"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/tv_title_edit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:text="title"
+                        android:textSize="20sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:drawablePadding="5dp"
+                            android:drawableStart="@mipmap/ic_launcher_round"
+                            android:gravity="center_vertical"
+                            android:text="刘悦" />
+
+                        <Button
+                            android:layout_width="50dp"
+                            android:layout_height="30dp"
+                            android:background="@drawable/btn_bg"
+                            android:text="关注"
+                            android:textColor="@color/white" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_describe_edit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="describe" />
+
+                    <ImageView
+                        android:id="@+id/img_one_des_edit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/ic_launcher_round" />
+
+                    <ImageView
+                        android:id="@+id/img_two_des_edit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/ic_launcher_round" />
+
+                    <ImageView
+                        android:id="@+id/img_three_des_edit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/ic_launcher_round" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:orientation="vertical">
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="3dp"
+                            android:background="@color/text_gray" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="@string/des_eidt_TV" />
+
+                        <Button
+                            android:layout_width="60dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="40dp"
+                            android:background="@drawable/btn_bg"
+                            android:text="打赏"
+                            android:textColor="@color/white" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:background="@drawable/frame"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="#b4b4b4"
+                                android:text="关注作者,看更多TA的好见闻" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="5dp"
+                                    android:layout_weight="1"
+                                    android:drawablePadding="5dp"
+                                    android:drawableStart="@mipmap/ic_launcher_round"
+                                    android:gravity="center_vertical"
+                                    android:text="刘悦" />
+
+                                <Button
+                                    android:layout_width="60dp"
+                                    android:layout_height="30dp"
+                                    android:layout_marginEnd="5dp"
+                                    android:background="@drawable/btn_bg"
+                                    android:text="关注"
+                                    android:textColor="@color/white" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="3dp"
+                            android:layout_marginTop="20dp"
+                            android:background="@color/text_gray" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:drawablePadding="5dp"
+                                    android:drawableStart="@mipmap/img_title_drawable"
+                                    android:text="评论" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:drawableEnd="@mipmap/img_order_style"
+                                    android:drawablePadding="5dp"
+                                    android:text="按时间排序" />
+                            </LinearLayout>
+
+                            <ListView
+                                android:id="@+id/lv_commend_edit"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"></ListView>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </RelativeLayout>
+        </android.support.v4.widget.NestedScrollView>
+    </com.baoyz.widget.PullRefreshLayout>
+
+    <include
+        layout="@layout/edit_activity_foot_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>

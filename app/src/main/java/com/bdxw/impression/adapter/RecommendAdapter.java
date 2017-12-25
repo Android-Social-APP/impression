@@ -1,6 +1,7 @@
 package com.bdxw.impression.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bdxw.impression.R;
+import com.bdxw.impression.activity.EditActivity;
 import com.bdxw.impression.bean.RecommendBean;
 import com.bumptech.glide.Glide;
 
@@ -71,7 +73,21 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(final RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
+        //条目点击
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, EditActivity.class);
+                intent.putExtra("position",position);
+                intent.putExtra("title", mRecommendBeans.get(position).getTitle());
+                intent.putExtra("img", mRecommendBeans.get(position).getFace());
+                intent.putExtra("summary", mRecommendBeans.get(position).getSummary());
+                mContext.startActivity(intent);
+            }
+        });
+
+
         if (holder instanceof ViewHolder) {
             final ViewHolder viewHolder = (ViewHolder) holder;
             viewHolder.recommend_adapter_tv.setText(mRecommendBeans.get(position).getTitle());
@@ -177,9 +193,11 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                 recommend_adapter_unfollow;
 
         ImageView recommend_adapter_img;
+//        View mView;
 
         public ViewHolder(View itemView) {
             super(itemView);
+//            this.mView = itemView;
             recommend_adapter_tv = itemView.findViewById(R.id.recommend_adapter_tv);
             recommend_adapter_img = itemView.findViewById(R.id.recommend_adapter_img);
             recommend_adapter_comment = itemView.findViewById(R.id.recommend_adapter_comment);
@@ -214,4 +232,8 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             recommend_adapter_unfollow_two = itemView.findViewById(R.id.recommend_adapter_unfollow_two);
         }
     }
+
+
+
+
 }
