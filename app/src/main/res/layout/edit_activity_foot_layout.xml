@@ -32,6 +32,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/edt_bg_edit_activity"
                 android:hint="@string/edit_send_hint"
+                android:maxLines="5"
                 android:padding="10dp"
                 android:textColorHint="#d6d6d6" />
 
