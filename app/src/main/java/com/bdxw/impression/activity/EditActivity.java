@@ -3,50 +3,47 @@ package com.bdxw.impression.activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
-import android.widget.Toast;
-
-
 import com.bdxw.impression.R;
 import com.bdxw.impression.base.BaseActivity;
 import com.bumptech.glide.Glide;
-
 import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by xxz on 17-12-19.
  */
 
 public class EditActivity extends BaseActivity {
-
     private String mTitle;
     private String mImg;
     private String mSummary;
-    private ImageView mImageView;
-    private TextView mTextViewTitle;
-    private TextView mTextViewDescribe;
-    private ImageView mImageViewOne;
-    private ImageView mImageViewTwo;
-    private ImageView mImageViewThree;
-    private RadioButton mRadioButton;
+    ImageView mImageView;
 
+    TextView mTextViewTitle;
+
+    TextView mTextViewDescribe;
+
+    ImageView mImageViewOne;
+
+    ImageView mImageViewTwo;
+
+    ImageView mImageViewThree;
+
+    RadioButton mRadioButton;
     //标记
     private boolean flag = false;
-    private SharedPreferences.Editor mEdit;
-    private SharedPreferences mStatus;
+
     private int mPosition;
-    private HashMap mHashMap = new HashMap<Integer, Boolean>();
+    private HashMap mHashMap=new HashMap<Integer,Boolean>();
+    private RadioButton mRadioBack;
 
     @Override
     protected void initData() {
         //获得bundle对象
-        Intent intent = getIntent();
+        final Intent intent = getIntent();
         mTitle = intent.getStringExtra("title");
         mImg = intent.getStringExtra("img");
         mSummary = intent.getStringExtra("summary");
@@ -59,25 +56,34 @@ public class EditActivity extends BaseActivity {
         Glide.with(this).load(mImg).into(mImageViewOne);
         Glide.with(this).load(mImg).into(mImageViewTwo);
         Glide.with(this).load(mImg).into(mImageViewThree);
+        mHashMap.put(mPosition,flag);
+        mRadioBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                Intent homeIntent = new Intent(EditActivity.this, HomeActivity.class);
+                int i = editBackPosition();
+                boolean b = editBackStack();
+                homeIntent.putExtra("position",i);
+                homeIntent.putExtra("stack",b);
+                startActivity(homeIntent);
+            }
+        });
         mRadioButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                 flag = (Boolean) mHashMap.get(mPosition);
                 if (flag) {
                     new AlertDialog.Builder(EditActivity.this)
                             .setTitle("您正在取消")
                             .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    boolean status = mStatus.getBoolean("follow", true);
-                                    if (status) {
-                                        flag = false;
-                                        mRadioButton.setChecked(!status);
-                                        mEdit.clear();
-                                        mEdit.commit();
-                                    } else {
-                                        Toast.makeText(EditActivity.this, "取消失败....", Toast.LENGTH_SHORT).show();
-                                    }
+                                  if(flag){
+                                      flag=false;
+                                      mHashMap.put(mPosition,flag);
+                                      mRadioButton.setChecked((Boolean) mHashMap.get(mPosition));
+                                  }
                                 }
                             })
                             .setNegativeButton("取消", new DialogInterface.OnClickListener() {
@@ -89,9 +95,8 @@ public class EditActivity extends BaseActivity {
                             }).show();
                 } else {
                     flag = true;
-                    mRadioButton.setChecked(true);
-                    mEdit.putBoolean("follow", true);
-                    mEdit.commit();
+                    mHashMap.put(mPosition,flag);
+                    mRadioButton.setChecked((Boolean) mHashMap.get(mPosition));
                 }
             }
         });
@@ -111,24 +116,16 @@ public class EditActivity extends BaseActivity {
         mImageViewTwo = findViewById(R.id.img_two_des_edit);
         mImageViewThree = findViewById(R.id.img_three_des_edit);
         mRadioButton = findViewById(R.id.radio_like_edit);
-        //初始化一个sp
-        mStatus = getSharedPreferences("status", MODE_PRIVATE);
-        mEdit = mStatus.edit();
-        boolean status = mStatus.getBoolean("follow", false);
-        if (status) {
-            mRadioButton.setChecked(status);
-        }
+        mRadioBack = findViewById(R.id.radio_back_edit);
+    }
+    //返回下标的方法
+    public int editBackPosition(){
+        return mPosition;
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        //退出后再进入后,读去sp
-        boolean status = mStatus.getBoolean("status", false);
-        Log.d("out", status + "");
-        if (status) {
-            mRadioButton.setChecked(status);
-        }
+    //返回状态
+    public boolean editBackStack(){
+        return flag;
     }
 }
 

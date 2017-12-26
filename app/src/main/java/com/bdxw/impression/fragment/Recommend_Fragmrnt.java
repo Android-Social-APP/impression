@@ -1,5 +1,7 @@
 package com.bdxw.impression.fragment;
 
+import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -10,6 +12,7 @@ import android.widget.TextView;
 
 import com.bdxw.impression.AppConstants;
 import com.bdxw.impression.R;
+import com.bdxw.impression.activity.EditActivity;
 import com.bdxw.impression.adapter.RecommendAdapter;
 import com.bdxw.impression.base.BaseFragment;
 import com.bdxw.impression.bean.RecommendBean;
@@ -54,7 +57,7 @@ public class Recommend_Fragmrnt extends BaseFragment {
     }
 
     @Override
-    protected void initView() { 
+    protected void initView() {
         //设置RecyclerView的布局
         mManager = new LinearLayoutManager(getActivity());
         mRecommendRecyclerview.setLayoutManager(mManager);
@@ -141,6 +144,15 @@ public class Recommend_Fragmrnt extends BaseFragment {
             mRecommendSpringview.setVisibility(View.GONE);
         } else {
             getNetData();
+        }
+        //详情页传值回来
+        Intent intent = getActivity().getIntent();
+        int position = intent.getIntExtra("position", -1);
+        boolean stack = intent.getBooleanExtra("stack", false);
+        if(position!=-1){
+            if(mRecommendAdapter.getPosition()==position){
+                mRecommendAdapter.isCheked(stack);
+            }
         }
     }
 

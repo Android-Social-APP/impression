@@ -9,7 +9,9 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bdxw.impression.R;
 import com.bdxw.impression.activity.EditActivity;
@@ -33,7 +35,10 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     //定义两种常量  表示三种条目类型
     private static final int TYPE_HAS_PIC = 0;
     private static final int TYPE_NO_PIC = 1;
-
+    //记录下标;
+    public int position;
+   //记录状态
+    public boolean isCheked;
     public RecommendAdapter(Context context) {
         mContext = context;
     }
@@ -74,10 +79,15 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
+       this.position=position;
+
         //条目点击
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+               /* if(mCallPos!=null){
+                    mCallPos.callPosition(position);
+                }*/
                 Intent intent = new Intent(mContext, EditActivity.class);
                 intent.putExtra("position",position);
                 intent.putExtra("title", mRecommendBeans.get(position).getTitle());
@@ -93,6 +103,11 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             viewHolder.recommend_adapter_tv.setText(mRecommendBeans.get(position).getTitle());
             Glide.with(mContext).load(mRecommendBeans.get(position).getFace()).into(viewHolder.recommend_adapter_img);
             viewHolder.recommend_adapter_admire.setText(mRecommendBeans.get(position).getRead_count());
+           if(isCheked){
+            viewHolder.recommend_adapter_admire.setChecked(isCheked);
+           }else{
+               Toast.makeText(mContext, "没有设置上........", Toast.LENGTH_SHORT).show();
+           }
             viewHolder.recommend_adapter_comment.setText(mRecommendBeans.get(position).getComment_count());
             viewHolder.recommend_adapter_follow.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -183,11 +198,11 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-
+        RadioButton recommend_adapter_admire;
         TextView
                 recommend_adapter_tv,
                 recommend_adapter_comment,
-                recommend_adapter_admire,
+
                 recommend_adapter_data,
                 recommend_adapter_follow,
                 recommend_adapter_unfollow;
@@ -233,7 +248,16 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         }
     }
 
-
-
-
+//设置状态的方法
+    public void isCheked(boolean flag){
+        this.isCheked=flag;
+    }
+    //返回position的方法;
+    public  int getPosition(){
+        return position;
+    }
+   /* private CallPos mCallPos;
+    public  interface  CallPos{
+        void callPosition(int position);
+    }*/
 }

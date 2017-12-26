@@ -41,13 +41,14 @@ android:layout_height="wrap_content">
         android:drawableLeft="@mipmap/img_comment"
         android:layout_height="match_parent" />
 
-    <TextView
+    <RadioButton
+        android:button="@null"
         android:id="@+id/recommend_adapter_admire"
         android:layout_width="wrap_content"
         android:gravity="center_vertical"
         android:layout_marginLeft="30dp"
         android:drawablePadding="10dp"
-        android:drawableLeft="@mipmap/img_admire"
+        android:drawableLeft="@drawable/item_selected"
         android:layout_height="match_parent" />
 
     <TextView
