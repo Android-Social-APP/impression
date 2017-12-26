@@ -24,28 +24,25 @@ import java.util.Map;
  */
 
 public class EditActivity extends BaseActivity {
+
     private String mTitle;
     private String mImg;
     private String mSummary;
-    ImageView mImageView;
+    private ImageView mImageView;
+    private TextView mTextViewTitle;
+    private TextView mTextViewDescribe;
+    private ImageView mImageViewOne;
+    private ImageView mImageViewTwo;
+    private ImageView mImageViewThree;
+    private RadioButton mRadioButton;
 
-    TextView mTextViewTitle;
-
-    TextView mTextViewDescribe;
-
-    ImageView mImageViewOne;
-
-    ImageView mImageViewTwo;
-
-    ImageView mImageViewThree;
-
-    RadioButton mRadioButton;
     //标记
     private boolean flag = false;
     private SharedPreferences.Editor mEdit;
     private SharedPreferences mStatus;
     private int mPosition;
-    private HashMap mHashMap=new HashMap<Integer,Boolean>();
+    private HashMap mHashMap = new HashMap<Integer, Boolean>();
+
     @Override
     protected void initData() {
         //获得bundle对象
@@ -107,13 +104,13 @@ public class EditActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        mImageView= findViewById(R.id.img_top_edit);
-        mTextViewTitle= findViewById(R.id.tv_title_edit);
-        mTextViewDescribe= findViewById(R.id.tv_describe_edit);
-        mImageViewOne= findViewById(R.id.img_one_des_edit);
-       mImageViewTwo= findViewById(R.id.img_two_des_edit);
-       mImageViewThree= findViewById(R.id.img_three_des_edit);
-       mRadioButton= findViewById(R.id.radio_like_edit);
+        mImageView = findViewById(R.id.img_top_edit);
+        mTextViewTitle = findViewById(R.id.tv_title_edit);
+        mTextViewDescribe = findViewById(R.id.tv_describe_edit);
+        mImageViewOne = findViewById(R.id.img_one_des_edit);
+        mImageViewTwo = findViewById(R.id.img_two_des_edit);
+        mImageViewThree = findViewById(R.id.img_three_des_edit);
+        mRadioButton = findViewById(R.id.radio_like_edit);
         //初始化一个sp
         mStatus = getSharedPreferences("status", MODE_PRIVATE);
         mEdit = mStatus.edit();
@@ -122,6 +119,7 @@ public class EditActivity extends BaseActivity {
             mRadioButton.setChecked(status);
         }
     }
+
     @Override
     protected void onResume() {
         super.onResume();

@@ -74,20 +74,17 @@
                     <ImageView
                         android:id="@+id/img_one_des_edit"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:src="@mipmap/ic_launcher_round" />
+                        android:layout_height="wrap_content" />
 
                     <ImageView
                         android:id="@+id/img_two_des_edit"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:src="@mipmap/ic_launcher_round" />
+                        android:layout_height="wrap_content"/>
 
                     <ImageView
                         android:id="@+id/img_three_des_edit"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:src="@mipmap/ic_launcher_round" />
+                        android:layout_height="wrap_content" />
 
                     <LinearLayout
                         android:layout_width="match_parent"

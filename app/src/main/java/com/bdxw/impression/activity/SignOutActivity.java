@@ -43,7 +43,7 @@ public class SignOutActivity extends BaseActivity {
                 isBoolean = mSharedPreferences1.getBoolean("状态", false);
                 if (isBoolean == true) {
                     mUid = mSharedPreferences1.getString("uid", null);
-                    Log.e("SignOutActivity", mUid);
+                    Log.e("SignOutActivity", "uid - - - - - - - - - - -" + mUid);
                 }
                 // 使用QQ用户的uid判断登陆状态
                 if (mUid == null) {
